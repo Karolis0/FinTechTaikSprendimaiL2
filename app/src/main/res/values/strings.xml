@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab2</string>
+    <string name="Words">Words</string>
+    <string name="Characters">Char</string>
+    <string name="CharactersWSpace">Character and space</string>
+    <string name="Letters">Letter</string>
+    <string name="Numbers">Numbers</string>
+    <string name="FalseInput">No text</string>
+    <string name="InputText">Enter text here</string>
+    <string name="OutputText">Result shown here</string>
+</resources>
