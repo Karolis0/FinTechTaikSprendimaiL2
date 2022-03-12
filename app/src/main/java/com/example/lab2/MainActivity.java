@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView tvInput;
@@ -44,19 +46,19 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
 
-        // 1,
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String res1 = tvInput.getText().toString();
-                String res2 = spnSelection.getSelectedItem().toString();
 
-                int CountResult = counter.Count(tvInput.getText().toString(), spnSelection.getSelectedItem().toString());
-                if (CountResult > 0) {
-                    tvResult.setText(Integer.toString(CountResult));
+                if (!Objects.equals(tvInput.getText().toString(), "")) {
+                    int CountResult = counter.Count(tvInput.getText().toString(), spnSelection.getSelectedItem().toString());
+                    if (CountResult > 0) {
+                        tvResult.setText(Integer.toString(CountResult));
+                    } else {
+                        Toast.makeText(getApplicationContext(), getString(R.string.FalseInput), Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),getString(R.string.FalseInput),Toast.LENGTH_SHORT).show();
+                else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.FalseInput), Toast.LENGTH_SHORT).show();
                 }
             }
         });
